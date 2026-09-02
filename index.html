@@ -2,35 +2,178 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #00ff66;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Canvas do Fundo Hacker Animado */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Grid de Circuito de CPU */
+        .cpu-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.8) 80%),
+                linear-gradient(rgba(0, 255, 102, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.15) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Painel Central */
+        .container {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 10, 5, 0.9);
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.6), inset 0 0 15px rgba(0, 255, 102, 0.3);
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #00ff66;
+            font-size: 3rem;
+            text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #88ffb3;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+            margin-bottom: 30px;
+        }
+
+        /* Grupo de botões com separação vertical e horizontal */
+        .btn-group {
+            display: flex;
+            gap: 25px; /* Espaço entre os botões */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Para quebrar a linha se a tela for pequena */
+        }
+
+        a.btn {
+            background-color: rgba(13, 34, 23, 0.95);
+            color: #00ff66;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            border: 1px solid #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 5px; /* Evita colar se dobrar a linha */
+        }
+
+        a.btn:hover {
+            background-color: #00ff66;
+            color: #000;
+            box-shadow: 0 0 25px #00ff66, 0 0 50px #00ff66;
+            transform: translateY(-2px);
+            font-weight: bold;
+        }
+
+        a.btn-secondary {
+            background-color: rgba(10, 17, 24, 0.95);
+            color: #00e5ff;
+            border-color: #00e5ff;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        }
+
+        a.btn-secondary:hover {
+            background-color: #00e5ff;
+            color: #000;
+            box-shadow: 0 0 25px #00e5ff, 0 0 50px #00e5ff;
+        }
+    </style>
 </head>
-<body style="background-color: #0d1117; color: #58a6ff; font-family: monospace; padding: 40px; text-align: center; line-height: 1.6;">
+<body>
 
-    <!-- Título Hacker Estético -->
-    <h1 style="color: #2ea44f; font-size: 3rem; margin-bottom: 10px;">[ PORTAL TECH ]</h1>
-    <p style="color: #8b949e; font-size: 1.2rem;">Escolha o módulo de conhecimento para ativar:</p>
-    <br><br>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="cpu-grid"></div>
 
-    <!-- Menu de Opções (Os Botões que Funcionam de Verdade) -->
-    <div style="max-width: 600px; margin: 0 auto;">
-        
-        <!-- Botão 1: Leva para a página de Scripts -->
-        <a href="script.html" style="background-color: #238636; color: white; padding: 18px 35px; text-decoration: none; font-size: 1.3rem; border-radius: 6px; margin: 15px; display: block; font-weight: bold; border: 1px solid #30363d; transition: background-color 0.2s;">
-            💻 MÓDULO: Como Criar um Script
-        </a>
-        
-        <!-- Botão 2: Leva para a página de Inteligência Artificial -->
-        <a href="ia.html" style="background-color: #21262d; color: #c9d1d9; padding: 18px 35px; text-decoration: none; font-size: 1.3rem; border-radius: 6px; margin: 15px; display: block; font-weight: bold; border: 1px solid #30363d; transition: background-color 0.2s;">
-            🤖 MÓDULO: Como Usar Inteligência Artificial
-        </a>
+    <div class="container">
+        <h1>[ PORTAL TECH ]</h1>
+        <p>&gt; Escolha o que você quer aprender hoje para evoluir_</p>
 
+        <div class="btn-group">
+            <a href="script.html" class="btn">💻 Como Criar um Script</a>
+            <a href="ia.html" class="btn btn-secondary">🤖 Como Usar Inteligência Artificial</a>
+        </div>
     </div>
 
-    <!-- Rodapé Técnico -->
-    <footer style="margin-top: 60px; color: #8b949e; font-size: 0.8rem; border-top: 1px solid #21262d; padding-top: 20px;">
-        <p>STATUS: SYSTEM_READY // OPERANDO EM AMBIENTE SEGURO</p>
-    </footer>
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff66';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
