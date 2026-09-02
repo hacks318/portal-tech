@@ -2,142 +2,42 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Portal Tech</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
+        /* APENAS FUNDO TECNOLÓGICO */
         body {
-            margin: 0;
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 170, 0.15), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(80, 0, 255, 0.18), transparent 30%),
-                #05070d;
-
-            color: #58a6ff;
-            font-family: monospace;
-            text-align: center;
-
             position: relative;
             overflow: hidden;
         }
 
-        /* Grade tecnológica */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-
-            background-image:
-                linear-gradient(rgba(0, 255, 170, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 170, 0.06) 1px, transparent 1px);
-
-            background-size: 40px 40px;
-
-            animation: grade 10s linear infinite;
-
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        /* Brilho central */
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-
-            background: rgba(0, 255, 170, 0.08);
-            border-radius: 50%;
-            filter: blur(100px);
-
-            pointer-events: none;
             z-index: -1;
+
+            background:
+                linear-gradient(rgba(0, 255, 100, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 100, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at center, rgba(0, 255, 100, 0.12), transparent 60%),
+                #0d1117;
+
+            background-size: 40px 40px, 40px 40px, auto, auto;
+
+            animation: fundo 10s linear infinite;
         }
 
-        @keyframes grade {
+        @keyframes fundo {
             from {
-                transform: translateY(0);
+                background-position: 0 0, 0 0, center, center;
             }
 
             to {
-                transform: translateY(40px);
+                background-position: 40px 40px, 40px 40px, center, center;
             }
         }
+    </style>
+</head>
 
-        h1 {
-            color: #2ea44f;
-            font-size: clamp(2rem, 7vw, 3.5rem);
-            margin-bottom: 15px;
-
-            text-shadow:
-                0 0 10px rgba(46, 164, 79, 0.8),
-                0 0 30px rgba(46, 164, 79, 0.4);
-        }
-
-        p {
-            color: #8b949e;
-            font-size: 1.2rem;
-            max-width: 700px;
-        }
-
-        .botoes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        a {
-            padding: 16px 28px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            border-radius: 8px;
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
-
-        .script {
-            background-color: #238636;
-            color: white;
-
-            box-shadow: 0 0 15px rgba(35, 134, 54, 0.4);
-        }
-
-        .ia {
-            background-color: #21262d;
-            color: #c9d1d9;
-            border: 1px solid #30363d;
-
-            box-shadow: 0 0 15px rgba(88, 166, 255, 0.15);
-        }
-
-        a:hover {
-            transform: translateY(-4px);
-        }
-
-        .script:hover {
-            box-shadow: 0 0 25px rgba(35, 134, 54, 0.8);
-        }
-
-        .ia:hover {
-            box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
-        }
-
-        .terminal {
-            margin-top: 35px;
-            padding: 12px 
+<body style="background-color: #0d1117; color: #58a
