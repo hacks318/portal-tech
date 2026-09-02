@@ -3,41 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Portal Tech</title>
-
-    <style>
-        /* APENAS FUNDO TECNOLÓGICO */
-        body {
-            position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-
-            background:
-                linear-gradient(rgba(0, 255, 100, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 100, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at center, rgba(0, 255, 100, 0.12), transparent 60%),
-                #0d1117;
-
-            background-size: 40px 40px, 40px 40px, auto, auto;
-
-            animation: fundo 10s linear infinite;
-        }
-
-        @keyframes fundo {
-            from {
-                background-position: 0 0, 0 0, center, center;
-            }
-
-            to {
-                background-position: 40px 40px, 40px 40px, center, center;
-            }
-        }
-    </style>
 </head>
-
-<body style="background-color: #0d1117; color: #58a
+<body style="background-color: #0d1117; color: #58a6ff; font-family: monospace; padding: 40px; text-align: center;">
+    <h1 style="color: #2ea44f; font-size: 3rem;">[ PORTAL TECH ]</h1>
+    <p style="color: #8b949e; font-size: 1.2rem;">Escolha o que você quer aprender hoje para evoluir:</p>
+    <br><br>
+    <a href="script.html" style="background-color: #238636; color: white; padding: 15px 30px; text-decoration: none; font-size: 1.2rem; border-radius: 5px; margin: 10px; display: inline-block;">💻 Como Criar um Script</a>
+    <a href="ia.html" style="background-color: #21262d; color: #c9d1d9; padding: 15px 30px; text-decoration: none; font-size: 1.2rem; border-radius: 5px; margin: 10px; display: inline-block; border: 1px solid #30363d;">🤖 Como Usar Inteligência Artificial</a>
+</body>
+</html>
